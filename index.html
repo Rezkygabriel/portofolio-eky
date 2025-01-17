@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        .certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ubah ukuran minmax */
+    gap: 50px; /* Tambahkan lebih banyak jarak antar elemen */
+    justify-items: center; /* Pastikan elemen tetap rata tengah */
+    padding: 20px; /* Tambahkan padding untuk memberi ruang lebih banyak */
+}
+
+.certification img {
+    width: 250px; /* Ubah ukuran gambar agar lebih kecil */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Tingkatkan bayangan untuk tampilan elegan */
+}
+
+.certification p {
+    margin-top: 10px;
+    font-weight: 600;
+    color: #333;
+    text-align: center; /* Pastikan teks sejajar tengah di bawah gambar */
+}
+
+
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(to bottom, #f5f5f5, #eae7dc);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #1a1a2e;
+            color: white;
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .nav-links a:hover {
+            background-color: #333;
+            transform: scale(1.05);
+        }
+
+        .section {
+            padding: 50px 20px;
+            background-color: #ffffff;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-weight: 900;
+            color: #1a1a2e;
+            margin-bottom: 20px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .profile-pic {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #1a1a2e;
+        }
+
+        .about-content p {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: justify;
+        }
+
+      /* Skills Section */
+      .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .skill {
+            background-color: #eaeaea;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: 600;
+            color: #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .skill:hover {
+            transform: scale(1.1);
+        }
+
+       
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .project img {
+            width: 100%;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .project p {
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        /*css untuk education */
+
+        .timeline {
+    position: relative;
+    margin: 50px auto;
+    padding: 20px 0;
+    width: 100%;
+    max-width: 800px;
+    border-left: 3px solid #1a1a2e;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 20px;
+}
+
+.timeline-dot {
+    position: absolute;
+    top: 0;
+    left: -8px;
+    width: 15px;
+    height: 15px;
+    background-color: #1a1a2e;
+    border-radius: 50%;
+    border: 3px solid white;
+}
+
+.timeline-content {
+    background-color: #f9f9f9;
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-content .year {
+    font-weight: bold;
+    color: #1a1a2e;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.school-logo {
+    width: 75px; /* Ukuran lebar logo */
+    height: auto;
+    margin-bottom: 10px; /* Jarak antara logo dan teks */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+        /* Contact Section */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        input,
+        textarea,
+        button {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        input,
+        textarea {
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        button {
+            background-color: #1a1a2e;
+            color: #ffffff;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            background-color: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #1a1a2e;
+            color: #ffffff;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#about" class="smooth-scroll">About</a></li>
+                <li><a href="#education" class="smooth-scroll">Education</a></li>
+                <li><a href="#skills" class="smooth-scroll">Skills</a></li>
+                <li><a href="#projects" class="smooth-scroll">Projects</a></li>
+                <li><a href="#certifications" class="smooth-scroll">Certifications</a></li>
+                <li><a href="#contact" class="smooth-scroll">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h1>About Me</h1>
+            <div class="about-content">
+                <img src="foto/foto1.jpg" alt="Profile Picture" class="profile-pic">
+                <p>Hello! Saya <strong>[Rachel Rezky Gabriel]</strong>,Saya adalah mahasiswa berusia 21 tahun yang sedang menempuh pendidikanperkuliahan Diploma pada Bidang Keahlian Teknologi Informasi, Program Studi TeknologiInformasi & Komputer, Fakultas Vokasi Universitas Brawijaya. Berjiwa Kepemimpinan,Bertanggung Jawab, Jujur, Trampil yang bisa menjadi kalimat untuk mendeskripsikan dirisaya dalam belajar maupun bekerja.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="section">
+        <div class="container">
+            <h1>Education</h1>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <img src="foto/smp.png" alt="Middle School Logo" class="school-logo">
+                        <span class="year">2010 - 2013</span>
+                        <p>Middle School - [School Name]</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <img src="foto/smk.png" alt="High School Logo" class="school-logo">
+                        <span class="year">2013 - 2016</span>
+                        <p>High School - [School Name]</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <img src="foto/ub.png" alt="University Logo" class="school-logo">
+                        <span class="year">2016 - 2020</span>
+                        <p>Bachelor's Degree - [University Name]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <section id="skills" class="section">
+        <div class="container">
+            <h1>Skills</h1>
+            <div class="skills-grid">
+                <div class="skill" >HTML</div>
+                <div class="skill">CSS</div>
+                <div class="skill" >JavaScript</div>
+                <div class="skill" >Python</div>
+                <div class="skill" >React</div>
+                <div class="skill" >SQL</div>
+            </div>
+            <div id="popup" class="popup">
+                <p id="popup-text"></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h1>Projects</h1>
+            <div class="projects-grid">
+                <div class="project">
+                    <img src="project1-placeholder.jpg" alt="Project 1">
+                    <p>Project Title 1</p>
+                </div>
+                <div class="project">
+                    <img src="project2-placeholder.jpg" alt="Project 2">
+                    <p>Project Title 2</p>
+                </div>
+                <!-- Add more projects here -->
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications" class="section">
+        <div class="container">
+            <h1>Certifications</h1>
+            <div class="certifications-grid">
+                <div class="certification">
+                    <img src="sertif/s1.png" alt="Certification 1">
+                    <p>Certification Title 1</p>
+                </div>
+                <div class="certification">
+                    <img src="sertif/s2.jpg" alt="Certification 2">
+                    <p>Certification Title 2</p>
+                </div>
+                <div class="certification">
+                    <img src="sertif/s3.jpg" alt="Certification 2">
+                    <p>Certification Title 3</p>
+                </div>
+                <div class="certification">
+                    <img src="sertif/s4.png" alt="Certification 2">
+                    <p>Certification Title 4</p>
+                </div>
+                <div class="certification">
+                    <img src="sertif/s5.png" alt="Certification 2">
+                    <p>Certification Title 4</p>
+                </div>
+                <!-- Add more certifications here -->
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h1>Contact</h1>
+            <form id="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="tel" placeholder="Phone Number" required>
+                <input type="email" placeholder="Email Address" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 [Your Name]. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth Scrolling Effect
+        document.querySelectorAll('.smooth-scroll').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                window.scrollTo({
+                    top: targetElement.offsetTop - 50,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Popup for Skills
+        const skills = document.querySelectorAll('.skill');
+
+        skills.forEach(skill => {
+            skill.addEventListener('mouseover', (e) => {
+                const description = skill.getAttribute('data-description');
+                popupText.textContent = description;
+
+                const rect = skill.getBoundingClientRect();
+                popup.style.left = `${rect.left + window.scrollX + rect.width / 2}px`;
+                popup.style.top = `${rect.top + window.scrollY - 10}px`;
+                popup.style.display = 'block';
+            });
+
+            skill.addEventListener('mouseout', () => {
+                popup.style.display = 'none';
+            });
+        });
+
+    </script>
+    
+</body>
+
+
+</html>
